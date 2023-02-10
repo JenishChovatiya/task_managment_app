@@ -5,18 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Pannel</title>
-    <link rel="styleSheet" href = "main.css">
+    <style>
+
+/*For Admin Pannel Page*/
+.mainDivivionOfAdminPannel{
+    width: 500px;
+    height: 600px;
+    margin-top: 30px;
+    margin-left: 100px;
+    border: solid 3px black;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+
+}
+
+.newTaskCreateLbl{
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-bottom: 40px;
+    margin-top: 10px;
+}
+
+
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(147, 143, 143);
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    outline: none;
+    background-color: #FFF;
+  }
+  
+  input[type=submit] {
+    width: 40%;
+    background-color: #3ba53e;
+    color: white;
+    padding: 14px 20px;
+    margin: 25px 0;
+    margin-left: 130px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 30px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #0e6e13;
+    
+  }
+  
+  #startDate, #endDate{
+    margin-left: 30px;
+    width: 50%;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid rgb(147, 143, 143);
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    background-color: #FFF;
+    
+  }
+
+    </style>
 </head>
 <body>
 
     
     <div class = "mainDivivionOfAdminPannel">
 
-        
+      <label class="newTaskCreateLbl">Create a new task</label> 
+        <form>
+          <label for="taskid">Task Id</label>
+          <input type="text" id="taskId" placeholder="Please enter task id">
+      
+          <label for="taskname">Task name</label>
+          <input type="text" id="taskName"  placeholder="Please enter a name for this task">
+
+          <label for="taskdetails">Task Details</label>
+          <textarea id="taskDetails"  placeholder="Enter details of the class" style="height:80px"></textarea>
+      
+          <label for="startdate">Select start date</label>
+          <input type="date" id="startDate">
+          <br/>
+
+          <label for="enddate">Select End date</label>
+          <input type="date" id="endDate">
+
+          <input type="submit" value="Create" onclick="crteateNewTask()">
+
+
+        </form>
        
     </div>
 
-
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyD5JiYR8U0fZ3SH-aE3bs_azy_tVGCF1fk",
+          authDomain: "java-script-project-fe70e.firebaseapp.com",
+          projectId: "java-script-project-fe70e",
+          storageBucket: "java-script-project-fe70e.appspot.com",
+          messagingSenderId: "333637297039",
+          appId: "1:333637297039:web:e1e4e9053f3ef7003461fa",
+          measurementId: "G-1791Q3L03T"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
 
     <script src="https://kit.fontawesome.com/68726d9447.js" crossorigin="anonymous"></script>
 
