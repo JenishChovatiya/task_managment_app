@@ -40,6 +40,30 @@ let clickToProsess = document.getElementById('clickSignUpBtn');
 // }
 
 
+
+
+//For Sign up and Login firebase authentication
+const firebaseConfig = {
+    apiKey: "AIzaSyD5JiYR8U0fZ3SH-aE3bs_azy_tVGCF1fk",
+    authDomain: "java-script-project-fe70e.firebaseapp.com",
+    projectId: "java-script-project-fe70e",
+    storageBucket: "java-script-project-fe70e.appspot.com",
+    messagingSenderId: "333637297039",
+    appId: "1:333637297039:web:e1e4e9053f3ef7003461fa",
+    measurementId: "G-1791Q3L03T"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  //declarring database variable 
+  
+  const database = getDatabase(app); 
+
+
+
+
 //Declaring static usernames and password for Admin
 const adminEmail = 'jenishchovatiya05@gmail.com';
 const adminEmailPassword = 'Project@01';
@@ -63,4 +87,14 @@ function checkValidation(){
         alert("Please Check Your Email or Password Field!");
     }
 
+}
+
+
+
+
+
+
+//For Resetting user's password
+function passWordReset(){
+    alert("Password reset link is sent!, Check your Email please.");
 }

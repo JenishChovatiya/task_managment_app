@@ -217,11 +217,5 @@ div button a{
 }
 
 
-/*For Admin Pannel Page*/
-.mainDivivionOfAdminPannel{
-    width: 800px;
-    height: 500px;
-    margin-top: 20px;
-    margin-left: 20px;
-    border: solid 3px black;
-}
+
+
