@@ -6,42 +6,6 @@ let pageTitle = document.getElementById('title')
 let reEnterPassword = document.getElementById('reEnterPassword');
 let clickToProsess = document.getElementById('clickSignUpBtn');
 
-//Changing color of buttons
-// signInBtn.onclick = function(){
-
-//     //Removing text and re-enter password feild.
-//     userNameField.style.maxHeight = "0";
-//     reEnterPassword.style.maxHeight = "0";
-    
-//     pageTitle.innerHTML = "Sign In";
-
-//     //Actie button color change happening 
-//     signUpBtn.classList.add("disable");
-//     signInBtn.classList.remove("disable");
-   
-// }
-
-// signUpBtn.onclick = function(){
-
-//      //Adding text and re-enter password feild.
-//     userNameField.style.maxHeight = "60px";
-//     reEnterPassword.style.maxHeight = "60px";
-
-//     pageTitle.innerHTML = "Sign Up";
-
-//     //Actie button color change happening
-//     signUpBtn.classList.remove("disable");
-//     signInBtn.classList.add("disable");
-// }
-
-
-// clickToProsess.onclick = function(){
-
-// }
-
-
-
-
 //For Sign up and Login firebase authentication
 const firebaseConfig = {
     apiKey: "AIzaSyD5JiYR8U0fZ3SH-aE3bs_azy_tVGCF1fk",
@@ -64,13 +28,14 @@ const firebaseConfig = {
 
 
 
-//Declaring static usernames and password for Admin
-const adminEmail = 'jenishchovatiya05@gmail.com';
-const adminEmailPassword = 'Project@01';
+
 
 //checking and validaing Admin
 function checkValidation(){
-    
+    //Declaring static usernames and password for Admin
+    const adminEmail = 'jenishchovatiya05@gmail.com';
+    const adminEmailPassword = 'Project@01';
+        
 
     let temEmail = document.getElementById('getAdminEmail').value;
     let temPassword = document.getElementById('getAdminPAssword').value;
@@ -82,9 +47,15 @@ function checkValidation(){
         window.location.href = "adminPannel.html";
 
     }
-    else
+    else if(temEmail.length == 0)
     {
-        alert("Please Check Your Email or Password Field!");
+        alert("Please Cceck your Email  field!");
+    }
+    else if(temPassword.length == 0){
+        alert("Please check your Password field!");
+    }
+    else{
+        alert("Given Email id and Password is not matching!, Please try again.");
     }
 
 }
