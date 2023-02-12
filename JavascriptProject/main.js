@@ -1,4 +1,4 @@
-//Declaring Variables and connecting it with html file
+//Declaring Variables and connecting it with html files
 let signUpBtn = document.getElementById('signUpBtn');
 let signInBtn = document.getElementById('signInBtn');
 let userNameField = document.getElementById('nameField')
@@ -6,29 +6,19 @@ let pageTitle = document.getElementById('title')
 let reEnterPassword = document.getElementById('reEnterPassword');
 let clickToProsess = document.getElementById('clickSignUpBtn');
 
-//For Sign up and Login firebase authentication
-const firebaseConfig = {
-    apiKey: "AIzaSyD5JiYR8U0fZ3SH-aE3bs_azy_tVGCF1fk",
-    authDomain: "java-script-project-fe70e.firebaseapp.com",
-    projectId: "java-script-project-fe70e",
-    storageBucket: "java-script-project-fe70e.appspot.com",
-    messagingSenderId: "333637297039",
-    appId: "1:333637297039:web:e1e4e9053f3ef7003461fa",
-    measurementId: "G-1791Q3L03T"
-  };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-
-  //declarring database variable 
-  
-  const database = getDatabase(app); 
+//Declaring variable for forgotPassword.html page
+//let forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+document.getElementById('forgotPasswordBtn').addEventListener('click', passWordReset);
 
 
+//For Resetting user's password
+function passWordReset(){
+    alert("Password reset link is sent!, Check your Email please.");
+}
 
 
-
+//Declaring All the functions that are usefull in the appication
 
 //checking and validaing Admin
 function checkValidation(){
@@ -58,14 +48,4 @@ function checkValidation(){
         alert("Given Email id and Password is not matching!, Please try again.");
     }
 
-}
-
-
-
-
-
-
-//For Resetting user's password
-function passWordReset(){
-    alert("Password reset link is sent!, Check your Email please.");
 }

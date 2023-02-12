@@ -114,7 +114,7 @@ form p a{
     font-size: 15px;
 }
 
-#clickSignUpBtn{
+.clickSignUpBtn{
     flex-basis: 200%;
     background: #242583;
     color: #fff;

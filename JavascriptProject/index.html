@@ -16,17 +16,17 @@
 
                     <div class="input-field" id = "nameField">
                         <i class = "fa-solid fa-user"></i>
-                        <input type="text" placeholder="Enter your full name">
+                        <input type="text" id ="userFullName" placeholder="Enter your full name">
                     </div>
 
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Enter your email address">
+                        <input type="email" placeholder="Enter your email address" id="email">
                     </div>
 
                     <div class="input-field">
                         <i class = "fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Enter your password">
+                        <input type="password" placeholder="Enter your password" id="pass">
                     </div>
 
                     <div class="input-field" id = "reEnterPassword">
@@ -36,7 +36,7 @@
 
 
                     <div class = "performOperation">
-                        <button type="button" id="clickSignUpBtn">  
+                        <button type="button" class="clickSignUpBtn" id="performSignUp">  
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
@@ -57,35 +57,80 @@
         </div>
     </div>
 
-
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
-
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-
-
+        import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
         // TODO: Add SDKs for Firebase products that you want to use
-
-
-
         // https://firebase.google.com/docs/web/setup#available-libraries
       
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-       
+        const firebaseConfig = {
+            apiKey: "AIzaSyD5JiYR8U0fZ3SH-aE3bs_azy_tVGCF1fk",
+            authDomain: "java-script-project-fe70e.firebaseapp.com",
+            databaseURL: "https://java-script-project-fe70e-default-rtdb.firebaseio.com",
+            projectId: "java-script-project-fe70e",
+            storageBucket: "java-script-project-fe70e.appspot.com",
+            messagingSenderId: "333637297039",
+            appId: "1:333637297039:web:e1e4e9053f3ef7003461fa",
+            measurementId: "G-1791Q3L03T"
+            };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+    performSignUp.addEventListener('click',(e) => {
+
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('pass').value;
+  var userName = document.getElementById('userFullName').value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+    set(ref(database, 'Users/' +userName), {
+    Email_address: email,
+    User_name:userName 
+
+  })
+    .then(() => {
+    // Data saved successfully!
+    alert('User created successfully.');
+
+    })
+    .catch((error) => {
+    // The write failed...
+    alert(error);
+    });
+
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        alert(errorMessage);
+
+    });
+});
+
+ const analytics = getAnalytics(app);
       </script>
 
 
 
     <!-- https://fontawesome.com/  --> 
     <!-- sociboc131@ekcsoft.com used for login -->
-    <script src="https://kit.fontawesome.com/68726d9447.js" crossorigin="anonymous"></script>
+ <script src="https://kit.fontawesome.com/68726d9447.js" crossorigin="anonymous"></script>
 
     
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
