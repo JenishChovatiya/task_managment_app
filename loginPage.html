@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="styleSheet" href = "main.css">
+</head>
+<body>
+    
+
+    <div id = "sqaureBox">
+        <div class="form-box">
+            <h1>Log In</h1>
+            <form>
+                <div class = "input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="loginPageEmailId" placeholder="Enter your email address">
+                    </div>
+
+                    <div class="input-field">
+                        <i class = "fa-solid fa-lock"></i>
+                        <input type="password" id="loginPagePassword" placeholder="Enter your password">
+                    </div>  
+
+                    <div class = "performOperation">
+                        <button type="button" class="clickSignUpBtn" id = "performLoginIn">  
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <p class="displayForgetPassword"> Forgot password? <a href="forgotPasswordPage.html"> Click Me!  </a> </p>
+                    
+                    <p class = "adminLoginTextForLoginPage"> <a href="adminLogin.html">  Click me if you are admin </a> </p>
+                 
+                    <p class = "displayOR"> OR</p>
+                
+                </div>
+
+                <div class="btn-field">
+                    <button type="button"><a href="index.html"> Sign Up </a> </button>
+                </div>
+
+            </form>
+        </div>  
+    </div>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyD5JiYR8U0fZ3SH-aE3bs_azy_tVGCF1fk",
+          authDomain: "java-script-project-fe70e.firebaseapp.com",
+          projectId: "java-script-project-fe70e",
+          storageBucket: "java-script-project-fe70e.appspot.com",
+          messagingSenderId: "333637297039",
+          appId: "1:333637297039:web:e1e4e9053f3ef7003461fa",
+          measurementId: "G-1791Q3L03T"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
+     <!-- https://fontawesome.com/  --> 
+    <!-- sociboc131@ekcsoft.com used for login -->
+    <script src="https://kit.fontawesome.com/68726d9447.js" crossorigin="anonymous"></script>
+
+    
+    <script src="main.js"></script>
+</body>
+</html>
