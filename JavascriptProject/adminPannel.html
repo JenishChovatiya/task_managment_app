@@ -78,10 +78,69 @@
           }
 
 
+          
+
+
+          /* For diplaying available tasks  */
+          .displaySavedTasks{
+            position: absolute;
+            width: 900px;
+            height: 400px;
+            float: right;
+            border: solid 3px black;
+            margin-top: -645px;
+            margin-left: 500px;
+           
+          }
+
+          .toDoTasks{
+            width: 270px;
+            height: 250px;
+            margin-left: 15px;
+            border: solid 2px black;
+            font-size: 18px;
+            padding-left: 10px;
+            overflow: auto;
+            background-color: rgb(124, 120, 120);
+            color: #FFF;
+            float: left;
+           
+          }
+
+          .toDoingTasks{
+            width: 270px;
+            height: 250px;
+            margin-left: 10px;
+            border: solid 2px black;
+            font-size: 18px;
+            padding-left: 10px;
+            overflow: auto;
+            float: left;
+            background-color: rgb(124, 120, 120);
+            color: #FFF;
+          }
+
+          .toDoneTasks{
+            width: 270px;
+            height: 250px;
+            margin-left: 10px;
+            border: solid 2px black;
+            font-size: 18px;
+            padding-left: 10px;
+            overflow: auto;
+            background-color: rgb(124, 120, 120);
+            color: #FFF;
+            float: left;  
+          }
+
+
+
     </style>
 </head>
 <body>
 
+
+  <!-- For displaying create a new task -->
     <div class = "mainDivivionOfAdminPannel">
 
       <label class="newTaskCreateLbl">Create a new task</label> 
@@ -106,21 +165,45 @@
 
           <input type="button" value="Create" id = "insertDataBtn">
 
-        <div>
-          
-        </div>
+        
+        
              
-        </form>
+      </form>
         
     </div>
 
 
+<!-- For Displaying Current tasks -->
+      <div class = "displaySavedTasks">
+          
+        <label class="newTaskCreateLbl">Current Tasks</label> 
+
+          <div class="toDoTasks">
+              <p id="toDoTaskId"> Task Id : 001 </p>
+              <p id="toDoTaskName"> Task Name : Create login page loginp padlsmlk kfkf</p>
+              <p id="toDoTaskAssignedTo"> Task Assign to : abc@gmail.com </p>
+              <p id="toDoTaskEndDate"> Task End date : 2023-06-04 </p>
+          </div>
+  
+          <div class="toDoingTasks">
+            <p id="toDoTaskId"> Task Id : 001 </p>
+            <p id="toDoTaskName"> Task Name : Create login page loginp padlsmlk kfkf</p>
+            <p id="toDoTaskAssignedTo"> Task Assign to : abc@gmail.com </p>
+            <p id="toDoTaskEndDate"> Task End date : 2023-06-04 </p>
+        </div>
+  
+        <div class="toDoneTasks">
+          <p id="toDoTaskId"> Task Id : 001 </p>
+          <p id="toDoTaskName"> Task Name : Create login page loginp padlsmlk kfkf</p>
+          <p id="toDoTaskAssignedTo"> Task Assign to : abc@gmail.com </p>
+          <p id="toDoTaskEndDate"> Task End date : 2023-06-04 </p>
+        </div>
+ 
+      </div>
+ 
 
 
-
-
-
-    <script src="https://kit.fontawesome.com/68726d9447.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/68726d9447.js" crossorigin="anonymous"></script>
 
     <script type="module">
 
