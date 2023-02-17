@@ -235,6 +235,29 @@
           //For Admin pannel, creating new task
           function crteateNewTask(){
 
+            if (taskId.value.length == 0) {
+              alert("Plese Enter task id.");
+
+            }
+            else if (taskName.value.length == 0) 
+            {
+              alert("Plaese enter task name.");
+            }
+            else if (taskDetails.value.length == 0)
+            {
+              alert("Plaese enter task details.");
+            }
+            else if (taskStartDate.value.length == 0)
+            {
+              alert("Plaese enter task start date.");
+            }
+           else if (taskEndDate.value.length == 0)
+           {
+            alert("Plaese enter task end date.");
+           }
+
+           else
+            {
               set(ref(database, "Tasks/" + taskId.value), {
                   Task_Id : taskId.value,
                   Task_Name : taskName.value,
@@ -252,6 +275,9 @@
 
               getAllData();
 
+            }
+
+              
           }
 
          insertDataButton.addEventListener('click', crteateNewTask);
@@ -311,9 +337,15 @@
           })
         }
 
+
+        //Updatting data to firebase. 
+
+        //binding button with it's id and calling event listner.
         let updateBtnClicked = document.getElementById('updateData'); 
         updateBtnClicked.addEventListener('click', updateDataInDataBse);
 
+
+        //calling firebase database and based on task id it is updating data
        function updateDataInDataBse(){
         update(ref(database, "Tasks/" + taskId.value),{
               Task_Name: taskName.value,
