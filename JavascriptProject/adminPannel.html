@@ -347,7 +347,28 @@
 
         //calling firebase database and based on task id it is updating data
        function updateDataInDataBse(){
-        update(ref(database, "Tasks/" + taskId.value),{
+
+
+        //Validating user input 
+            if (taskId.value.length == 0) {
+              alert("Plese Enter task id.");
+
+            }
+            else if (taskName.value.length == 0) 
+            {
+              alert("Plaese enter task name.");
+            }
+            else if (taskStartDate.value.length == 0)
+            {
+              alert("Plaese enter task start date.");
+            }
+            else if (taskEndDate.value.length == 0)
+            {
+             alert("Plaese enter task end date.");
+            }
+
+            else{
+              update(ref(database, "Tasks/" + taskId.value),{
               Task_Name: taskName.value,
               Task_Start_Date: taskStartDate.value,
               Task_End_Date: taskEndDate.value
@@ -359,6 +380,8 @@
               alert(error);
             });
             getAllData();
+            }
+        
        }
        
         window.onload = getAllData;
