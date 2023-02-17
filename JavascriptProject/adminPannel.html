@@ -46,24 +46,6 @@
             font-family:Arial, Helvetica, sans-serif;
           }
           
-          input[type=button] {
-            width: 40%;
-            background-color: #3ba53e;
-            color: white;
-            padding: 14px 20px;
-            margin: 30px 0;
-            margin-left: 90px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 30px;
-          }
-          
-          input[type=button]:hover {
-            background-color: #0e6e13;
-            
-          }
           
           #startDate, #endDate{
             margin-left: 20px;
@@ -78,6 +60,40 @@
             background-color: #FFF;
             
           }
+
+          #insertDataBtn{
+            width: 30%;
+            background-color: #3ba53e;
+            color: white;
+            padding: 14px 20px;
+            margin: 30px 0;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+          }
+
+          #insertDataBtn:hover, #updateData:hover{
+            background-color: #0e6e13;
+          }
+
+          #updateData{
+            width: 30%;
+            background-color: #3ba53e;
+            color: white;
+            padding: 14px 20px;
+            margin: 30px 0;
+            float: right;
+            margin-right: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+          }
+
 
 
           
@@ -107,79 +123,7 @@
             margin-top: 10px;
           }
 
-          .toDoClassLable{
-            font-size: 20px;
-            float: left;
-            padding-bottom: 5px;
-            margin-top: 10px;
-            margin-left: 70px;
-            margin-bottom: 5px;
-          }
-
-          .toDoingClassLable{
-            font-size: 20px;
-            float: left;
-            display: flex;
-            padding-bottom: 5px;
-            margin-top: 10px;
-            margin-left: 210px;
-          }
-
-          .toDoneClassLable{
-            font-size: 20px;
-            float: left;
-            display: flex;
-            padding-bottom: 5px;
-            margin-top: 10px;
-            margin-left: 210px;
-          }
-
-
-          .toDoTasks{
-            width: 270px;
-            height: 250px;
-            margin-top: 5px;
-            margin-left: 15px;
-            border: solid 2px black;
-            font-size: 18px;
-            padding-left: 10px;
-            overflow: auto;
-            background-color: rgb(124, 120, 120);
-            color: #FFF;
-            float: left;
-           
-          }
-
-          .toDoingTasks{
-            width: 270px;
-            height: 250px;
-            margin-top: 5px;
-            margin-left: 10px;
-            border: solid 2px black;
-            font-size: 18px;
-            padding-left: 10px;
-            overflow: auto;
-            float: left;
-            background-color: rgb(124, 120, 120);
-            color: #FFF;
-          }
-
-          .toDoneTasks{
-            width: 270px;
-            height: 250px;
-            margin-left: 10px;
-            margin-top: 5px;
-            border: solid 2px black;
-            font-size: 18px;
-            padding-left: 10px;
-            overflow: auto;
-            background-color: rgb(124, 120, 120);
-            color: #FFF;
-            float: left;  
-          }
-
-
-
+          
 
     </style>
 </head>
@@ -210,6 +154,8 @@
           <input type="date" id="endDate">
 
           <input type="button" value="Create" id = "insertDataBtn">
+
+          <input type="button" value="Update" id = "updateData">
 
         
         
@@ -245,38 +191,6 @@
 
 
 
-        <!-- <label class="toDoClassLable">To Do tasks</label> 
-        <label class="toDoingClassLable">To Doing tasks</label> 
-        <label class="toDoneClassLable">To Done tasks</label> -->
-
-      <!-- <div class="toDoTasks" id="toDoTasks">
-              <p id="toDoTaskId"> Task Id : 001 </p>
-              <p id="toDoTaskName"> Task Name : Create login page loginp padlsmlk kfkf</p>
-              <p id="toDoTaskAssignedTo"> Task Assign to : abc@gmail.com </p>
-              <p id="toDoTaskEndDate"> Task End date : 2023-06-04 </p>
-          </div>
-  
-         
-
-          <div class="toDoingTasks">
-            <p id="toDoTaskId"> Task Id : 001 </p>
-            <p id="toDoTaskName"> Task Name : Create login page loginp padlsmlk kfkf</p>
-            <p id="toDoTaskAssignedTo"> Task Assign to : abc@gmail.com </p>
-            <p id="toDoTaskEndDate"> Task End date : 2023-06-04 </p>
-            <br>
-            <br>
-
-            
-        </div>
-  
-        
-        <div class="toDoneTasks">
-          <p id="toDoTaskId"> Task Id : 001 </p>
-          <p id="toDoTaskName"> Task Name : Create login page loginp padlsmlk kfkf</p>
-          <p id="toDoTaskAssignedTo"> Task Assign to : abc@gmail.com </p>
-          <p id="toDoTaskEndDate"> Task End date : 2023-06-04 </p>
-        </div> -->
-
 
 <script src="https://kit.fontawesome.com/68726d9447.js" crossorigin="anonymous"></script>
 
@@ -304,7 +218,7 @@
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
 
-      import {getDatabase, ref, set, child, get} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+      import {getDatabase, ref, set, child, get, update, remove} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
       //declarring database variable  
       const database = getDatabase(); 
@@ -397,6 +311,23 @@
           })
         }
 
+        let updateBtnClicked = document.getElementById('updateData'); 
+        updateBtnClicked.addEventListener('click', updateDataInDataBse);
+
+       function updateDataInDataBse(){
+        update(ref(database, "Tasks/" + taskId.value),{
+              Task_Name: taskName.value,
+              Task_Start_Date: taskStartDate.value,
+              Task_End_Date: taskEndDate.value
+            })
+            .then(()=> {
+              alert("Data updated successfully");
+            })
+            .catch(() => {
+              alert(error);
+            });
+            getAllData();
+       }
        
         window.onload = getAllData;
     </script>  
