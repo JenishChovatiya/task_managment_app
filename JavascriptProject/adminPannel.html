@@ -10,12 +10,14 @@
     <style>
 
         body{
-          height: 100vh;
+          height: 100%;
           width: 100%;
           background-image: linear-gradient(rgba(0, 0, 70, 0.8),rgba(0, 0, 70, 0.8)), url(backgroundimg.png);
           background-position: center;
           background-size: cover;
           position: relative;
+          flex-wrap: wrap;
+        
 
         }
         /*For Admin Pannel Page*/
@@ -108,7 +110,7 @@
             color: white;
             padding: 14px 20px;
             margin: 30px 0;
-           margin-left: 10px;
+            margin-left: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -116,8 +118,6 @@
             border-radius: 30px;
           }
 
-
-          
 
 
           /* For diplaying available tasks  */
@@ -173,14 +173,24 @@
           <label for="enddate">Select End date</label>
           <input type="date" id="endDate">
 
+          <!-- For dropDown manu. -->
+          <label> Select User</label>
+          <div class="dropdown">
+            <select name="user-Emails" id="userEmail">
+          
+            </select>
+
+          </div>
+
+
+
+          <!-- Buttons for performing different actions -->
           <input type="button" value="Create" id = "insertDataBtn">
 
           <input type="button" value="Update" id = "updateData">
 
           <input type="button" value="Delete" id = "deleteData">
 
-        
-        
              
       </form>
         
@@ -251,6 +261,7 @@
         let taskStartDate = document.getElementById("startDate");
         let taskEndDate = document.getElementById("endDate");
         let insertDataButton = document.getElementById("insertDataBtn"); 
+        let list = document.getElementById("list"); 
 
 
           //For Admin pannel, creating new task
@@ -434,9 +445,50 @@
           }
 
        }
+
+
        
+//For dropddown menu.
+ //Calling email address from the database 
+ function usersTests(){
+            const databaseRef = ref(database);
+
+            get (child(databaseRef, "Users")).then(
+              (snapshot)=>{
+                let users = [];
+                snapshot.forEach(
+                  childSnapshot =>{
+                    users.push(childSnapshot.val());
+                  }
+                );
+
+                users.forEach(element =>{
+                 
+                  createList(element.Email_address)
+                })
+                
+              }
+            );
+        }
+        usersTests();
+       
+        function createList(emailAdds){
+
+          console.log(emailAdds);
+
+          let selectDiv = document.getElementById('userEmail');
+
+          let list1 = document.createElement('option');
+
+          list1.innerHTML = emailAdds;
+
+          selectDiv.appendChild(list1);
+        }
+        
+      
+        window.onload = usersTests;
         window.onload = getAllData;
     </script>  
-  
+
 </body>
 </html>
