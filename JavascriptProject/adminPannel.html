@@ -133,6 +133,7 @@
             overflow: auto;
             margin-bottom: 10px;
             background-color: #f2f2f2;
+            overflow-x: auto;
           }
 
           .currentTasksLable{
@@ -143,6 +144,7 @@
             padding-bottom: 40px;
             margin-top: 20px;
           }
+
 
           
 
@@ -213,6 +215,8 @@
                 <th>Task Name</th>
                 <th>Task Start Dtae</th>
                 <th>Task End Date</th> 
+                <th>Task Assign To</th>
+              
               </thead>
               <tbody id = "tbody1"></tbody>
             </table>
@@ -262,6 +266,7 @@
         let taskEndDate = document.getElementById("endDate");
         let insertDataButton = document.getElementById("insertDataBtn"); 
         let list = document.getElementById("list"); 
+        let checkTaskAssignTo = document.getElementById('userEmail');
 
 
           //For Admin pannel, creating new task
@@ -295,7 +300,8 @@
                   Task_Name : taskName.value,
                   Task_Details : taskDetails.value,
                   Task_Start_Date : taskStartDate.value,
-                  Task_End_Date : taskEndDate.value
+                  Task_End_Date : taskEndDate.value,
+                  Task_Assign_To : checkTaskAssignTo.value
 
               })
               .then(()=>{
@@ -322,25 +328,28 @@
         let tbody = document.getElementById('tbody1');
         let loadDatabase = document.getElementById('databaseDisplayer');
 
-        function addItemsToTable(taskId,taskName,taskStartDate,taskEndDate){
+        function addItemsToTable(taskId,taskName,taskStartDate,taskEndDate,taskAssignedTo){
           let trow = document.createElement('tr');
           let td1 = document.createElement('td');
           let td2 = document.createElement('td');
           let td3 = document.createElement('td');
           let td4 = document.createElement('td');
           let td5 = document.createElement('td');
+          let td6 = document.createElement('td');
 
           td1.innerHTML = ++taskid;
           td2.innerHTML = taskId;
           td3.innerHTML = taskName;
           td4.innerHTML = taskStartDate;
           td5.innerHTML = taskEndDate;
+          td6.innerHTML = taskAssignedTo;
 
           trow.appendChild(td1);
           trow.appendChild(td2);
           trow.appendChild(td3);
           trow.appendChild(td4);
           trow.appendChild(td5);
+          trow.appendChild(td6);
 
           tbody.appendChild(trow);
         }
@@ -349,7 +358,7 @@
           taskid = 0;
           tbody.innerHTML = "";
           theTask.forEach(element => {
-            addItemsToTable(element.Task_Id,element.Task_Name,element.Task_Start_Date,element.Task_End_Date);
+            addItemsToTable(element.Task_Id,element.Task_Name,element.Task_Start_Date,element.Task_End_Date,element.Task_Assign_To);
           });
         }
 
@@ -403,7 +412,8 @@
               update(ref(database, "Tasks/" + taskId.value),{
               Task_Name: taskName.value,
               Task_Start_Date: taskStartDate.value,
-              Task_End_Date: taskEndDate.value
+              Task_End_Date: taskEndDate.value,
+              Task_Assign_To : checkTaskAssignTo.value
             })
             .then(()=> {
               alert("Data updated successfully");
