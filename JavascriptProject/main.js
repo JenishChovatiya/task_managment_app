@@ -12,6 +12,8 @@ let clickToProsess = document.getElementById('clickSignUpBtn');
 document.getElementById('forgotPasswordBtn').addEventListener('click', passWordReset);
 
 
+
+
 //For Resetting user's password
 function passWordReset(){
     alert("Password reset link is sent!, Check your Email please.");
