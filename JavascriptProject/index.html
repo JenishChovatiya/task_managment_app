@@ -97,14 +97,16 @@
     // Signed in 
     const user = userCredential.user;
     // ...
-    set(ref(database, 'Users/' +userName), {
+    set(ref(database, 'Users/' +user.uid), {
     Email_address: email,
-    User_name:userName 
+    User_name:userName,
+    User_Id : user.uid 
 
   })
     .then(() => {
     // Data saved successfully!
     alert('User created successfully.');
+    window.location.href = "showUserTaskPage.html";
     clearField();
 
     })
