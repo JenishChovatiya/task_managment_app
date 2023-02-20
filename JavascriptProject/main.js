@@ -9,15 +9,15 @@ let clickToProsess = document.getElementById('clickSignUpBtn');
 
 //Declaring variable for forgotPassword.html page
 //let forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
-document.getElementById('forgotPasswordBtn').addEventListener('click', passWordReset);
+// document.getElementById('forgotPasswordBtn').addEventListener('click', passWordReset);
 
 
 
 
-//For Resetting user's password
-function passWordReset(){
-    alert("Password reset link is sent!, Check your Email please.");
-}
+// //For Resetting user's password
+// function passWordReset(){
+//     alert("Password reset link is sent!, Check your Email please.");
+// }
 
 
 //Declaring All the functions that are usefull in the appication
@@ -51,3 +51,5 @@ function checkValidation(){
     }
 
 }
+
+
