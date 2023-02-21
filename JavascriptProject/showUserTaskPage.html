@@ -10,12 +10,12 @@
 
     <style>
         .displaySavedTasks{
-            width:100%;
-            height: 800px;
+            width: 900px;
+            height: 500px;
             overflow: auto;
            
-            margin-top: 10px;
-            margin-left: 10px;
+            margin-top: 150px;
+            margin-left: 250px;
             
         }
         table{
@@ -23,41 +23,240 @@
             overflow: auto;
             
         }
+        .mainDiv{
+          width: 100%;
+          height: 60px;
+
+          background: #fff;
+
+        }
+
+        .displaySavedTasks{
+          height: 400px;
+          margin-top:200px ;
+          background: #fff;
+          border: solid 3px black;
+          margin-bottom: 100px;
+        }
+
+        label{
+          margin-left: 30px;
+          color: #fff;
+          font-size: 20px;
+          margin-top: 25px;
+        }
+        input{
+          color: black;
+        }
+
+        #collectUserTotalHours{
+          width: 10%;
+          height: 10px;
+          margin-top: 30px;
+          background-color: #fff;
+          border: solid 1px black;
+        }
+
+       
+
+        h1{
+          margin-left: 30px;
+          font-size: 33px;
+          margin-top: 10px;
+        }
+
+        #submiSalaryData{
+            width: 150px;
+            background-color: #2a5590;
+            color: white;
+            padding: 14px 20px;
+            float: right;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+            margin-top: -45px;
+           position: relative;
+            margin-right: 700px;
+        }
+
+        #submiSalaryData:hover{
+        
+          background-color: #a5b8d3;
+          color: black;
+        
+        }
+
+        #logOutBtn{
+            float: right;
+            margin-right: 30px;
+            margin-top: -53px;
+            font-size: 18px;
+            width: 150px;
+            height: 50px;
+            background-color: #2a5590;
+            color: white;
+            padding: 13px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            border-radius: 30px;
+            justify-content: center;
+
+        }
+
+        #logOutBtn:hover{
+          background-color: #7185a0;
+          color: black;
+          font-size: 22px;
+          padding: 10px 20px;
+        }
+
+        #username{
+          position: relative;
+          float: right;
+          margin-right: 230px;
+          margin-top: -45px;
+          font-size: 20px;
+        }
+
+        .currentTasksLable{
+          font-size: 20px;
+          color: black;
+          display: flex;
+          justify-content: center;
+          justify-items: center;
+         
+        }
+
+        #selectProcess{
+          display: flex;
+          margin-top: -35px;
+          margin-left: 200px;
+          width: 15%;
+          height: 30px;
+        }
+
+        #updateTaskState{
+          width: 150px;
+            background-color: #2a5590;
+            color: white;
+            padding: 14px 20px;
+            float: right;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+            margin-top: -40px;
+            position: relative;
+            margin-right: 700px;
+        }
+
+
+        #updateTaskState:hover{
+        background-color: #a5b8d3;
+        color: black;
+      }
+
+      #displayTotalSalary {
+          float: right;
+          margin-right: 100px;
+          color: #fff;
+          font-size: 25px;
+          margin-top: 40px;
+
+      }
+
+      form div label {
+          display:inline-block;
+          width: 300px;
+          margin-top: 40px;
+          text-align: left;
+          margin-left: 30px;  
+      }
+    
     </style>
+    <link rel="styleSheet" href = "main.css">
 
 </head>
 <body>
-    
-<h1>Your Taska will display here.</h1>
-<p id = "username"></p>
-<p id = "emailDis"></p>
-<p id = "emailDis1"></p>
-
-
-
-
-
-<div class = "displaySavedTasks"  id = "databaseDisplayer">
-       
-    <label class="currentTasksLable">Tasks</label> 
-
-      <div class="container mt-3">
-        <table class="table">
-          <thead>
-            <th>Number</th>
-            <th>Task Id</th>
-            <th>Task Name</th>
-            <th>Task Details</th>
-            <th>Task Start Dtae</th>
-            <th>Task End Date</th> 
-            <th>Task Assign To</th>
-          
-          </thead>
-          <tbody id = "tbody1"></tbody>
-        </table>
-      </div>
    
+  
+<div  id = "sqaureBox">
+    <div class = "mainDiv">
+    <h1>Welcome !</h1>
+    <input type="button" value="Log Out"  id="logOutBtn">
+    <p id = "username"></p>
+  
+
+    <form>
+
+      <div>
+        <label for="askingHours">Please Enter Your Total Hours</label>
+        <input id="collectUserTotalHours" placeholder="Enter hours" type="number">
+        <input id="submiSalaryData" type="button" value="Submit">
+      </div>
+
+      <div>
+        <label> Select task process</label>
+          <div class="dropdown">
+                
+          <select name="task-process" id="selectProcess">
+            <option value="none" selected disabled >Select an Option</option>
+            <option value="Task not started yet"> To Do Task </option>
+            <option value="Currently doing"> Task Currently Doing </option>
+            <option value="Task completed"> Task Done </option> 
+          </select> 
+
+          <input type="button" value="update" id="updateTaskState">   
+        
+        </div>
+       
+
+      </div>
+     
+    </form>
+    
+    <div>
+    <label for="yourSalary" id="displayTotalSalary">  </label>
+
+  
+     
+    </div>
+  
+
+
   </div>
+
+
+
+      <div class = "displaySavedTasks"  id = "databaseDisplayer">
+        <p id = "emailDis"></p>
+        <p id = "emailDis1"></p>
+          <label class="currentTasksLable">Your Tasks</label> 
+
+            <div class="container mt-3">
+              <table class="table">
+                <thead>
+                  <th>Number</th>
+                  <th>Task Id</th>
+                  <th>Task Name</th>
+                  <th>Task Details</th>
+                  <th>Task Start Dtae</th>
+                  <th>Task End Date</th> 
+                  <th>Task Assign To</th>
+                  <th>Task's Current State</th>
+                  <th>Your Salary for this Task</th>
+                
+                </thead>
+                <tbody id = "tbody1"></tbody>
+              </table>
+            </div>
+        
+        </div>
+      
+</div>
 
 
     <script type="module">
@@ -76,10 +275,10 @@
           measurementId: "G-1791Q3L03T"
         };
 
-        import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getAuth, onAuthStateChanged,  signOut} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
      
       
-        import {getDatabase, ref, set, child, get, onValue, query, limitToFirst, limitToLast, orderByChild, startAt, startAfter, endAt, endBefore, equalTo} 
+        import {getDatabase, ref, set, child, get, update,onValue, query, limitToFirst, limitToLast, orderByChild, startAt, startAfter, endAt, endBefore, equalTo} 
         from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 
@@ -117,7 +316,6 @@ onAuthStateChanged(auth, (user) => {
            // console.log(loginUser);
   
 
-
         })
         
     } 
@@ -142,19 +340,15 @@ onAuthStateChanged(auth, (user) => {
     console.log(convertToString);
    }
 
-   
-   //console.log(valueFound(userlogged));
+  
 
-   
-   
-           
         //this will add items to the table
 
         let taskid = 0;
         const tbody = document.getElementById('tbody1');
        
    
-        function addItemsToTable(taskIDS,taskName,taskDetails,stratDate,endDate,assignTo){
+        function addItemsToTable(taskIDS,taskName,taskDetails,stratDate,endDate,assignTo,taskstate,userSalary){
 
           let trow = document.createElement('tr');
           let td1 = document.createElement('td');
@@ -164,6 +358,8 @@ onAuthStateChanged(auth, (user) => {
           let td5 = document.createElement('td');
           let td6 = document.createElement('td');
           let td7 = document.createElement('td');
+          let td8 = document.createElement('td');
+          let td9 = document.createElement('td');
 
 
           td1.innerHTML = ++taskid;
@@ -173,6 +369,8 @@ onAuthStateChanged(auth, (user) => {
           td5.innerHTML = stratDate;
           td6.innerHTML = endDate;
           td7.innerHTML = assignTo;
+          td8.innerHTML = taskstate;
+          td9.innerHTML = userSalary;
 
 
 
@@ -183,27 +381,43 @@ onAuthStateChanged(auth, (user) => {
           trow.appendChild(td5);
           trow.appendChild(td6);
           trow.appendChild(td7);
+          trow.appendChild(td8);
+          trow.appendChild(td9);
         
 
           tbody.appendChild(trow);
 
+         
+          
 
         }
 
+       
+
+        var storeTaskId = []; 
+        var wege = [];
         function addAllItemsTable(users){
+            
             taskid = 0;
             tbody.innerHTML = "";
 
             users.forEach(element =>{
-                addItemsToTable(element.Task_Id,element.Task_Name,element.Task_Details,element.Task_Start_Date,element.Task_End_Date,element.Task_Assign_To);
+                addItemsToTable(element.Task_Id,element.Task_Name,element.Task_Details,element.Task_Start_Date,element.Task_End_Date,element.Task_Assign_To,element. Task_State,element.Total_Cost);
+                //sendDataToCalculateSalary(element.Task_Hourly_Wage);
+                wege.push(element.Task_Hourly_Wage);
+               
+
+                storeTaskId.push(element.Task_Id);
+
+                
+                
             });
-            
+
+           
         }
 
 
         function getAllDataOnce(data){
-
-
            
            // const databaseRef = ref(database);
            let que = query(ref(database, 'Tasks'), orderByChild("Task_Assign_To"), equalTo(data));
@@ -216,45 +430,143 @@ onAuthStateChanged(auth, (user) => {
                 snapshot.forEach(childSnapshot =>{
                     
                     users.push(childSnapshot.val());
-                   
-                   
+ 
                   })
                 
                   addAllItemsTable(users);
-                  
-                
-              });
+        
+              })
 
         }
 
+ // console.log(storeTaskId[0]);
 
 
+//For calculatting wage
+    document.getElementById('submiSalaryData').addEventListener('click', ()=> {
+      let colledctedHours  = document.getElementById('collectUserTotalHours').value;
+
+      if(colledctedHours <= 0){
+        alert("please Enter hours")
+      }
+      else
+      {
+        let convertHoursToNumber = Number(colledctedHours);
+          
+          let z = (wege[0] * colledctedHours);
+
+
+        //displaying salary after counting  entered hours with based salary.
+        document.getElementById('displayTotalSalary').innerHTML = "Your Total Salary for this task will : "+ z;
+          
+          let store = z;
+          //updating value to database
+          let newString = storeTaskId[0];
+
+
+
+          update(ref(database, "Tasks/" + newString),{
+              Total_Cost: store,
+          })
+          .then(()=> {
+              alert("Salary Data updated successfully");
+              
+              clearData();
+              
+            })
+            .catch(() => {
+              alert(error);
+              clearData();
+            });
+           
+            getAllDataOnce();
+            
+      }
+  
+    });
+
+
+//For performing update task state
+      document.getElementById('updateTaskState').addEventListener('click', () => {
+
+            let newTaskStata = document.getElementById('selectProcess');
+
+            if (newTaskStata.value == "none"){
+              alert("Please select task state");
+            }
+            else
+            {
+              let newString1 = storeTaskId[0];
+
+              console.log(newString1);
+
+
+              update(ref(database, "Tasks/" + newString1),{
+                  Task_State: newTaskStata.value,
+              })
+              .then(()=> {
+                  alert("Salary Data updated successfully");
+                  clearData();
+                  
+                  
+                })
+                .catch(() => {
+                  alert(error);
+            });
+
+                  clearData();
+                  getAllDataOnce();
+
+
+            }
+           
+
+      })
+
+
+
+//Performin Sign out operation 
     
+        document.getElementById('logOutBtn').addEventListener('click', () => {
+          signOut(auth).then(() => {
+                  // Sign-out successful.
+                  console.log("sign out function called");
+                  window.location.href = "loginPage.html";
+                  window.history.pushState(null, null, window.location.href);
+                   window.onpopstate = function () {
+                    window.history.go(1);
+           };
+                 
+             }).catch((error) => {
+              // An error happened.
+              console.log(error);
+            }); 
+           
+        });
+       
+
+//Function to clear fields
+
+        function clearData()
+        {
+          document.getElementById('collectUserTotalHours').value = "";
+          // document.getElementById('selectProcess').value = "";
+        
+        }
+       
+
         //window.onload = grabValue();
         window.onload = getAllDataOnce;
 
-        // function getAllDataOnce(){
-        //     const que = query(ref(database, 'Tasks'), orderByChild("Task_Assign_To"), equalTo("jenishchovatiya05@gmail.com"));
-            
-        //     get(que)
-        //     .then((snapshot)=>{
-                
-        //         let users = [];
-        //         snapshot.forEach(childSnapshot =>{  
-        //             users.push(childSnapshot.val());
-                   
-                   
-        //           });
-
-        //           addAllItemsToTable(users);
-        //     });
-
-        // }
-        
-
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+                window.history.go(1);
+           };
+       
         
     </script>
 
+    <script src="main.js"></script>
 
 
 </body>
