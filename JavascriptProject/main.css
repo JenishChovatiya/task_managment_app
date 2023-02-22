@@ -8,7 +8,7 @@
 }
 
 #sqaureBox{
-    height: 100vh;
+    height: 120vh;
     width: 100%;
    background-image: linear-gradient(rgba(0, 0, 70, 0.8),rgba(0, 0, 70, 0.8)), url(backgroundimg.png);
    background-position: center;

@@ -92,40 +92,63 @@
   var userName = document.getElementById('userFullName').value;
   var reEnterPssword = document.getElementById('reEnterPassword').value;
 
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-    set(ref(database, 'Users/' +user.uid), {
-    Email_address: email,
-    User_name:userName,
-    User_Id : user.uid 
+    if(userName == ""){
+        alert("Plese enter  user name");
+    }
+  else if(email == ""){
+        alert("Please enter email address");
 
-  })
-    .then(() => {
-    // Data saved successfully!
-    alert('User created successfully.');
-    window.location.href = "showUserTaskPage.html";
-    clearField();
+    }
+    else if (password == ""){
+        alert("Plesse enter password");
+    }
+    else if (reEnterPssword == "")
+    {   
+        alert("Please fill up repassword field");
+       
+    }
+    else if (password != reEnterPssword){
+        alert("Please check your password field.");
+    }
+    else
+    {
+        createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+        set(ref(database, 'Users/' +user.uid), {
+        Email_address: email,
+        User_name:userName,
+        User_Id : user.uid 
 
     })
-    .catch((error) => {
-    // The write failed...
-    alert(error);
-    });
+        .then(() => {
+        // Data saved successfully!
+        alert('User created successfully.');
+        window.location.href = "showUserTaskPage.html";
+        clearField();
 
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-        alert(errorMessage);
+        })
+        .catch((error) => {
+        // The write failed...
+        alert(error);
+        });
 
-    });
-    clearField();
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            alert(errorMessage);
+
+        });
+        clearField();  
+        }
+  
 });
 
+//Clear fields 
 function clearField(){
 
     document.getElementById('email').value = "";
@@ -134,6 +157,8 @@ function clearField(){
     document.getElementById('reEnterPassword').value = ""; 
   
 }
+
+
 
  const analytics = getAnalytics(app);
 

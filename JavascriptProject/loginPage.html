@@ -88,9 +88,17 @@
         document.getElementById('performLoginIn').addEventListener('click', (e) => {
 
             const emialInputLoginPage = document.getElementById('loginPageEmailId').value;
-        const passwordInputLoginPage = document.getElementById('loginPagePassword').value;
-        
-         signInWithEmailAndPassword(auth, emialInputLoginPage, passwordInputLoginPage)
+            const passwordInputLoginPage = document.getElementById('loginPagePassword').value;
+
+            if (emialInputLoginPage == ""){
+                    alert("Please enter email address");
+            }
+            else if (passwordInputLoginPage == ""){
+                alert("Please enter password");
+            }
+            else
+            {
+                signInWithEmailAndPassword(auth, emialInputLoginPage, passwordInputLoginPage)
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
@@ -107,6 +115,8 @@
                     clearField();
                     
                 });
+            }
+           
 
 
         })
